@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <title>natio – Learn about contries and their neighbours</title>
     <meta
       name="description"
@@ -11,5 +12,39 @@
     <link rel="stylesheet" href="css/main.css" />
     <script type="module" src="js/controller.js"></script>
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <hgroup>
+        <h1 class="header__title">natio</h1>
+        <p class="header__subtitle">Discover the world of nations.</p>
+      </hgroup>
+
+      <form class="search">
+        <svg class="search__icon" width="24px" height="24px">
+          <use xlink:href="img/icons.svg#search-line"></use>
+        </svg>
+        <input
+          class="search__input"
+          id="search__input"
+          name="query"
+          type="search"
+          placeholder="Search for a country..." />
+      </form>
+    </header>
+
+    <main class="main">
+      <section class="nations">
+        <article class="nations__card"></article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__credits">
+        Designed by
+        <a href="https://github.com/dawidlehai/natio" class="footer__link"
+          >Dawid Le Hai</a
+        >.
+      </p>
+    </footer>
+  </body>
 </html>
