@@ -1,0 +1,22 @@
+{
+  "name": "natio",
+  "version": "1.0.0",
+  "description": "View information about a country and its neighbours.",
+  "main": "index.html",
+  "scripts": {
+    "start": "sass sass/main.scss css/main.css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dawidlehai/natio.git"
+  },
+  "author": "Dawid Le Hai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dawidlehai/natio/issues"
+  },
+  "homepage": "https://github.com/dawidlehai/natio#readme",
+  "devDependencies": {
+    "sass": "^1.55.0"
+  }
+}
