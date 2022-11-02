@@ -1,0 +1,31 @@
+.form {
+  background: #eee;
+  height: 100%;
+  padding: var(--btn-padding);
+  border-radius: var(--btn-border-radius);
+  display: inline-flex;
+  gap: 1rem;
+  margin-right: var(--btn-margin);
+
+  align-items: center;
+
+  &__search-input {
+    font-family: inherit;
+    font-size: var(--font-size-small);
+    color: inherit;
+    background: transparent;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      font-style: italic;
+    }
+
+    &::-webkit-search-cancel-button {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.footer {
+  align-self: center;
+
+  display: flex;
+  justify-content: center;
+
+  &__link:link,
+  &__link:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+}

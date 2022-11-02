@@ -1,0 +1,20 @@
+.header {
+  align-self: center;
+
+  display: grid;
+  justify-items: center;
+  gap: 1.6rem;
+
+  &__logo {
+    display: block;
+    aspect-ratio: 14202 / 4680;
+    min-width: 10rem;
+    width: 20vw;
+    max-width: 15rem;
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: var(--font-weight-regular);
+  }
+}
