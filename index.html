@@ -36,16 +36,48 @@
           placeholder="Search for a country..." />
       </form>
 
-      <button class="btn-discover">
-        <svg class="btn-discover__icon" width="24" height="24">
-          <use xlink:href="img/icons.svg#discover"></use>
+      <button class="header__btn">
+        <svg class="header__btn-icon" width="24" height="24">
+          <use xlink:href="img/icons.svg#shuffle"></use>
         </svg>
-        Discover
+        Random
       </button>
     </header>
 
     <main class="main">
-      <section class="nations">
+      <nav class="main__nav">
+        <button class="main__btn main__btn--discover">
+          <svg
+            class="main__btn-icon main__btn-icon--discover"
+            width="24"
+            height="24">
+            <use xlink:href="img/icons.svg#discover"></use>
+          </svg>
+          Discover
+        </button>
+
+        <button class="main__btn main__btn--favourites">
+          <svg
+            class="main__btn-icon main__btn-icon--favourites"
+            width="24"
+            height="24">
+            <use xlink:href="img/icons.svg#heart"></use>
+          </svg>
+          Favourites
+        </button>
+
+        <button class="main__btn main__btn--progress">
+          <svg
+            class="main__btn-icon main__btn-icon--progress"
+            width="24"
+            height="24">
+            <use xlink:href="img/icons.svg#line-chart"></use>
+          </svg>
+          Progress
+        </button>
+      </nav>
+
+      <section class="nations main__tab">
         <article class="nations__card nations__card--main">
           <div class="nations__flag-container">
             <img
@@ -120,6 +152,16 @@
               <use xlink:href="img/icons.svg#steering"></use>
             </svg>
             <p>Right</p>
+
+            <button class="nations__btn-map">
+              <svg
+                class="nations__icon nations__icon--map"
+                width="24px"
+                height="24px">
+                <use xlink:href="img/icons.svg#map"></use>
+              </svg>
+              Show on map
+            </button>
           </section>
         </article>
       </section>
