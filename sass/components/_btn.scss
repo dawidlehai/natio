@@ -11,8 +11,4 @@
   display: inline-flex;
   align-items: center;
   gap: var(--btn-gap);
-
-  &:not(:last-of-type) {
-    margin-right: var(--btn-margin);
-  }
 }

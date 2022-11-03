@@ -11,10 +11,13 @@
     min-width: 10rem;
     width: 20vw;
     max-width: 15rem;
+
+    fill: red;
   }
 
   &__title {
     font-size: 2rem;
+    font-style: italic;
     font-weight: var(--font-weight-regular);
   }
 }

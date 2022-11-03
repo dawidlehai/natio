@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>natio – Learn about contries and their neighbours</title>
+    <title>natio – Discover the world of nations</title>
     <meta
       name="description"
       content="natio is a web–based application where you can search and display information about countries and their neighbours. Discover the world of nations and save your progress as you learn!" />
@@ -23,60 +23,65 @@
         <use xlink:href="img/icons.svg#logo"></use>
       </svg>
       <h1 class="header__title">Discover the world of nations.</h1>
-
-      <div class="header__controls">
-        <form class="form">
-          <svg class="form__search-icon" width="24px" height="24px">
-            <use xlink:href="img/icons.svg#search"></use>
-          </svg>
-          <input
-            class="form__search-input"
-            id="search-input"
-            name="query"
-            type="search"
-            placeholder="Search for a country..." />
-        </form>
-
-        <button class="btn header__btn">
-          <svg class="btn__icon header__btn-icon" width="24" height="24">
-            <use xlink:href="img/icons.svg#shuffle"></use>
-          </svg>
-          Random
-        </button>
-      </div>
     </header>
 
     <main class="main">
       <nav class="tab-nav">
-        <button class="btn tab-nav__btn tab-nav__btn--discover">
-          <svg
-            class="btn__icon tab-nav__btn-icon tab-nav__btn-icon--discover"
-            width="24"
-            height="24">
-            <use xlink:href="img/icons.svg#discover"></use>
-          </svg>
-          Discover
-        </button>
+        <div class="search">
+          <form class="form">
+            <svg class="form__search-icon" width="24px" height="24px">
+              <use xlink:href="img/icons.svg#search"></use>
+            </svg>
+            <input
+              class="form__search-input"
+              id="search-input"
+              name="query"
+              type="search"
+              placeholder="Search for a country…" />
+          </form>
 
-        <button class="btn tab-nav__btn tab-nav__btn--favourites">
-          <svg
-            class="btn__icon tab-nav__btn-icon tab-nav__btn-icon--favourites"
-            width="24"
-            height="24">
-            <use xlink:href="img/icons.svg#heart"></use>
-          </svg>
-          Favourites
-        </button>
+          <button class="btn search__random-btn">
+            <svg
+              class="btn__icon search__random-btn-icon"
+              width="24"
+              height="24">
+              <use xlink:href="img/icons.svg#shuffle"></use>
+            </svg>
+            Random
+          </button>
+        </div>
 
-        <button class="btn tab-nav__btn tab-nav__btn--progress">
-          <svg
-            class="btn__icon tab-nav__btn-icon tab-nav__btn-icon--progress"
-            width="24"
-            height="24">
-            <use xlink:href="img/icons.svg#line-chart"></use>
-          </svg>
-          Progress
-        </button>
+        <div style="display: inline-flex; gap: 1rem">
+          <button class="btn tab-nav__btn tab-nav__btn--discover">
+            <svg
+              class="btn__icon tab-nav__btn-icon tab-nav__btn-icon--discover"
+              width="24"
+              height="24">
+              <use xlink:href="img/icons.svg#discover"></use>
+            </svg>
+            Discover
+          </button>
+
+          <button class="btn tab-nav__btn tab-nav__btn--favourites">
+            <svg
+              class="btn__icon tab-nav__btn-icon tab-nav__btn-icon--favourites"
+              width="24"
+              height="24">
+              <use xlink:href="img/icons.svg#heart"></use>
+            </svg>
+            Favourites
+          </button>
+
+          <button class="btn tab-nav__btn tab-nav__btn--progress">
+            <svg
+              class="btn__icon tab-nav__btn-icon tab-nav__btn-icon--progress"
+              width="24"
+              height="24">
+              <use xlink:href="img/icons.svg#line-chart"></use>
+            </svg>
+            Progress
+          </button>
+        </div>
       </nav>
 
       <section class="nations tab">
@@ -92,7 +97,7 @@
             <img
               class="nations__arms"
               src="https://mainfacts.com/media/images/coats_of_arms/pl.svg"
-              alt="Arms of Poland" />
+              alt="Coats of arms of Poland" />
 
             <hgroup class="nations__name-container">
               <h2 class="nations__common-name">Poland</h2>
@@ -133,9 +138,7 @@
               height="24px">
               <use xlink:href="img/icons.svg#translate"></use>
             </svg>
-            <p class="nations__info">
-              Polish, English, Chinese, French, German
-            </p>
+            <p class="nations__info">Polish</p>
 
             <svg
               class="nations__icon"
@@ -159,6 +162,273 @@
             <p class="nations__info">Right</p>
           </div>
 
+          <button class="btn nations__btn-map">
+            <svg
+              class="btn__icon nations__icon nations__icon--map"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#map"></use>
+            </svg>
+            Show on map
+          </button>
+        </article>
+
+        <article class="nations__card nations__card--neighbour">
+          <div class="nations__flag-container">
+            <img
+              class="nations__flag"
+              src="https://flagcdn.com/by.svg"
+              alt="Flag of Belarus" />
+          </div>
+
+          <div class="nations__info-container">
+            <img
+              class="nations__arms"
+              src="https://mainfacts.com/media/images/coats_of_arms/by.svg"
+              alt="Coats of arms of Belarus" />
+
+            <hgroup class="nations__name-container">
+              <h2 class="nations__common-name">Belarus</h2>
+              <p class="nations__official-name">Republic of Belarus</p>
+            </hgroup>
+
+            <svg
+              class="nations__icon"
+              title="Region"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#map-pin"></use>
+            </svg>
+            <p class="nations__info">Eastern Europe</p>
+
+            <svg
+              class="nations__icon"
+              title="Capital"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#building"></use>
+            </svg>
+            <p class="nations__info">Minsk</p>
+
+            <svg
+              class="nations__icon"
+              title="Population"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#parent"></use>
+            </svg>
+            <p class="nations__info">9 mln</p>
+
+            <svg
+              class="nations__icon"
+              title="Languages"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#translate"></use>
+            </svg>
+            <p class="nations__info">Belarusian, Russian</p>
+
+            <svg
+              class="nations__icon"
+              title="Currencies"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#currency"></use>
+            </svg>
+            <p class="nations__info">
+              Belarusian ruble <span class="nations__currency">Br</span
+              ><span class="nations__currency">BYN</span>
+            </p>
+
+            <svg
+              class="nations__icon"
+              title="Driving side"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#steering"></use>
+            </svg>
+            <p class="nations__info">Right</p>
+          </div>
+
+          <!-- TODO change button to <a></a> -->
+          <button class="btn nations__btn-map">
+            <svg
+              class="btn__icon nations__icon nations__icon--map"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#map"></use>
+            </svg>
+            Show on map
+          </button>
+        </article>
+
+        <article class="nations__card nations__card--neighbour">
+          <div class="nations__flag-container">
+            <img
+              class="nations__flag"
+              src="https://flagcdn.com/cz.svg"
+              alt="Flag of Czechia" />
+          </div>
+
+          <div class="nations__info-container">
+            <img
+              class="nations__arms"
+              src="https://mainfacts.com/media/images/coats_of_arms/cz.svg"
+              alt="Coats of arms of Czechia" />
+
+            <hgroup class="nations__name-container">
+              <h2 class="nations__common-name">Czechia</h2>
+              <p class="nations__official-name">Czech Republic</p>
+            </hgroup>
+
+            <svg
+              class="nations__icon"
+              title="Region"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#map-pin"></use>
+            </svg>
+            <p class="nations__info">Central Europe</p>
+
+            <svg
+              class="nations__icon"
+              title="Capital"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#building"></use>
+            </svg>
+            <p class="nations__info">Prague</p>
+
+            <svg
+              class="nations__icon"
+              title="Population"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#parent"></use>
+            </svg>
+            <p class="nations__info">10 mln</p>
+
+            <svg
+              class="nations__icon"
+              title="Languages"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#translate"></use>
+            </svg>
+            <p class="nations__info">Czech, Slovak</p>
+
+            <svg
+              class="nations__icon"
+              title="Currencies"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#currency"></use>
+            </svg>
+            <p class="nations__info">
+              Czech koruna <span class="nations__currency">Kč</span
+              ><span class="nations__currency">CZK</span>
+            </p>
+
+            <svg
+              class="nations__icon"
+              title="Driving side"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#steering"></use>
+            </svg>
+            <p class="nations__info">Right</p>
+          </div>
+
+          <!-- TODO change button to <a></a> -->
+          <button class="btn nations__btn-map">
+            <svg
+              class="btn__icon nations__icon nations__icon--map"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#map"></use>
+            </svg>
+            Show on map
+          </button>
+        </article>
+
+        <article class="nations__card nations__card--neighbour">
+          <div class="nations__flag-container">
+            <img
+              class="nations__flag"
+              src="https://flagcdn.com/de.svg"
+              alt="Flag of Germany" />
+          </div>
+
+          <div class="nations__info-container">
+            <img
+              class="nations__arms"
+              src="https://mainfacts.com/media/images/coats_of_arms/de.svg"
+              alt="Coats of arms of Germany" />
+
+            <hgroup class="nations__name-container">
+              <h2 class="nations__common-name">Germany</h2>
+              <p class="nations__official-name">Federal Republic of Germany</p>
+            </hgroup>
+
+            <svg
+              class="nations__icon"
+              title="Region"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#map-pin"></use>
+            </svg>
+            <p class="nations__info">Western Europe</p>
+
+            <svg
+              class="nations__icon"
+              title="Capital"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#building"></use>
+            </svg>
+            <p class="nations__info">Berlin</p>
+
+            <svg
+              class="nations__icon"
+              title="Population"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#parent"></use>
+            </svg>
+            <p class="nations__info">83 mln</p>
+
+            <svg
+              class="nations__icon"
+              title="Languages"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#translate"></use>
+            </svg>
+            <p class="nations__info">German</p>
+
+            <svg
+              class="nations__icon"
+              title="Currencies"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#currency"></use>
+            </svg>
+            <p class="nations__info">
+              Euro <span class="nations__currency">€</span
+              ><span class="nations__currency">EUR</span>
+            </p>
+
+            <svg
+              class="nations__icon"
+              title="Driving side"
+              width="24px"
+              height="24px">
+              <use xlink:href="img/icons.svg#steering"></use>
+            </svg>
+            <p class="nations__info">Right</p>
+          </div>
+
+          <!-- TODO change button to <a></a> -->
           <button class="btn nations__btn-map">
             <svg
               class="btn__icon nations__icon nations__icon--map"

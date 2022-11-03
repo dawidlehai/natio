@@ -1,11 +1,22 @@
 .nations {
   display: flex;
+  align-items: baseline;
+  gap: 1.2rem;
+  overflow-x: scroll;
+
+  @media (hover: hover) {
+    overflow-x: hidden;
+
+    &:hover {
+      overflow-x: scroll;
+    }
+  }
 
   &__card {
     background: #fff;
     border-radius: 1.4rem;
     overflow: hidden;
-    max-width: 30rem;
+    flex: 0 0 30rem;
   }
 
   &__flag {
@@ -37,9 +48,10 @@
   }
 
   &__btn-map {
-    padding: 2rem 1.6rem;
+    padding: 1.6rem 1.6rem;
     width: 100%;
     border-radius: 0;
     background: #ddd;
+    gap: 1.2rem;
   }
 }

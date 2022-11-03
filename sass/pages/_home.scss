@@ -4,10 +4,7 @@
   gap: 3.2rem;
 
   display: grid;
-  grid-template-columns: minmax(10rem, 120rem);
-  grid-template-rows: minmax(1fr, min-content) min-content minmax(
-      1fr,
-      min-content
-    );
+  grid-template-columns: minmax(10rem, 140rem);
+  grid-template-rows: 1fr min-content 1fr;
   justify-content: center;
 }

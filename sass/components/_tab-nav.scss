@@ -1,0 +1,11 @@
+.tab-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+
+  @media only screen and (max-width: 50.625em /* 810px */) {
+    display: grid;
+    gap: 1.6rem;
+    justify-content: center;
+  }
+}
