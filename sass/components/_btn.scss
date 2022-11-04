@@ -7,8 +7,17 @@
   font-size: var(--font-size-small);
   font-family: inherit;
   color: inherit;
+  background: var(--white);
 
   display: inline-flex;
   align-items: center;
   gap: var(--btn-gap);
+
+  &:hover {
+    background: linear-gradient(var(--main-10), var(--main-10)), var(--white);
+  }
+
+  &:active {
+    background: linear-gradient(var(--main-20), var(--main-20)), var(--white);
+  }
 }

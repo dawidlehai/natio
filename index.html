@@ -29,9 +29,11 @@
       <nav class="tab-nav">
         <div class="search">
           <form class="form">
-            <svg class="form__search-icon" width="24px" height="24px">
-              <use xlink:href="img/icons.svg#search"></use>
-            </svg>
+            <label for="search-input" aria-label="Search">
+              <svg class="form__search-icon" width="24px" height="24px">
+                <use xlink:href="img/icons.svg#search"></use>
+              </svg>
+            </label>
             <input
               class="form__search-input"
               id="search-input"
@@ -52,7 +54,8 @@
         </div>
 
         <div style="display: inline-flex; gap: 1rem">
-          <button class="btn tab-nav__btn tab-nav__btn--discover">
+          <button
+            class="btn tab-nav__btn tab-nav__btn--active tab-nav__btn--discover">
             <svg
               class="btn__icon tab-nav__btn-icon tab-nav__btn-icon--discover"
               width="24"
@@ -89,7 +92,7 @@
           <div class="nations__flag-container">
             <img
               class="nations__flag"
-              src="https://flagcdn.com/pl.svg"
+              src="https://flagcdn.com/w320/pl.png"
               alt="Flag of Poland" />
           </div>
 
@@ -177,7 +180,7 @@
           <div class="nations__flag-container">
             <img
               class="nations__flag"
-              src="https://flagcdn.com/by.svg"
+              src="https://flagcdn.com/w320/by.png"
               alt="Flag of Belarus" />
           </div>
 
@@ -236,8 +239,8 @@
               <use xlink:href="img/icons.svg#currency"></use>
             </svg>
             <p class="nations__info">
-              Belarusian ruble <span class="nations__currency">Br</span
-              ><span class="nations__currency">BYN</span>
+              Belarusian ruble <span class="nations__currency">Br</span>
+              <span class="nations__currency">BYN</span>
             </p>
 
             <svg
@@ -266,7 +269,7 @@
           <div class="nations__flag-container">
             <img
               class="nations__flag"
-              src="https://flagcdn.com/cz.svg"
+              src="https://flagcdn.com/w320/cz.png"
               alt="Flag of Czechia" />
           </div>
 
@@ -325,8 +328,8 @@
               <use xlink:href="img/icons.svg#currency"></use>
             </svg>
             <p class="nations__info">
-              Czech koruna <span class="nations__currency">Kč</span
-              ><span class="nations__currency">CZK</span>
+              Czech koruna <span class="nations__currency">Kč</span>
+              <span class="nations__currency">CZK</span>
             </p>
 
             <svg
@@ -355,7 +358,7 @@
           <div class="nations__flag-container">
             <img
               class="nations__flag"
-              src="https://flagcdn.com/de.svg"
+              src="https://flagcdn.com/w320/de.png"
               alt="Flag of Germany" />
           </div>
 
@@ -414,8 +417,8 @@
               <use xlink:href="img/icons.svg#currency"></use>
             </svg>
             <p class="nations__info">
-              Euro <span class="nations__currency">€</span
-              ><span class="nations__currency">EUR</span>
+              Euro <span class="nations__currency">€</span>
+              <span class="nations__currency">EUR</span>
             </p>
 
             <svg

@@ -1,22 +1,51 @@
 :root {
-  --font: "Lato", Verdana, Geneva, Tahoma, sans-serif;
-  --font-size: 1.6rem;
-  --font-size-small: 1.6rem;
-  --font-weight-regular: 400;
-  --font-weight-bold: 700;
-
-  --btn-padding: 0.6rem 1.2rem;
-  --btn-gap: 0.5rem;
-  --btn-border-radius: 100rem;
-
-  // HSL color definition for calc() manipulation
+  // HSL color definition and calc() manipulation
   --h: 349;
   --s: 100%;
   --l: 50%;
   --hsl: var(--h), var(--s), var(--l);
 
   --main: hsl(var(--hsl));
+  --main-10: hsla(var(--hsl), 0.1);
+  --main-20: hsla(var(--hsl), 0.2);
+  --main-30: hsla(var(--hsl), 0.3);
+  --main-40: hsla(var(--hsl), 0.4);
+  --main-50: hsla(var(--hsl), 0.5);
+  --main-60: hsla(var(--hsl), 0.6);
+  --main-70: hsla(var(--hsl), 0.7);
+  --main-80: hsla(var(--hsl), 0.8);
+  --main-90: hsla(var(--hsl), 0.9);
   --main-light: hsl(var(--h), var(--s), calc(var(--l) / 0.8));
   --main-dark: hsl(var(--h), var(--s), calc(var(--l) * 0.8));
   --main-text: hsl(var(--h), var(--s), calc(var(--l) * 0.2));
+
+  // Font
+  --font: "Lato", Verdana, Geneva, Tahoma, sans-serif;
+  --font-size: 1.6rem;
+  --font-size-small: 1.6rem;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --font-color: var(--main-text);
+
+  // Button
+  --btn-padding: 0.5rem 1.2rem 0.6rem 1.2rem;
+  --btn-gap: 0.5rem;
+  --btn-border-radius: 100rem;
+
+  // Colors
+  --white: #fff;
+  --gradient: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.5) 0%,
+      var(--main-10) 100%
+    ),
+    linear-gradient(45deg, var(--main-30) 30%, transparent 30%),
+    linear-gradient(45deg, var(--main-10) 50%, transparent 50%),
+    linear-gradient(45deg, var(--main-20) 75%, transparent 75%),
+    linear-gradient(45deg, var(--main-10) 100%, transparent 100%),
+    linear-gradient(-45deg, var(--main-30) 50%, transparent 50%),
+    linear-gradient(-45deg, var(--main-10) 20%, transparent 20%),
+    linear-gradient(-45deg, var(--main-10) 55%, transparent 55%),
+    linear-gradient(-45deg, var(--main-20) 75%, transparent 75%),
+    linear-gradient(-45deg, var(--main-10) 100%, transparent 100%);
 }

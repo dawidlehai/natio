@@ -1,5 +1,5 @@
 .form {
-  background: #eee;
+  background: var(--white);
   height: 100%;
   padding: var(--btn-padding);
   border-radius: var(--btn-border-radius);
@@ -9,6 +9,10 @@
   width: 25.261rem;
 
   align-items: center;
+
+  label[for="search-input"] {
+    line-height: 1;
+  }
 
   &__search-input {
     font-family: inherit;

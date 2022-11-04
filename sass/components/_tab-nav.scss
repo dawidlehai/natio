@@ -2,10 +2,17 @@
   display: flex;
   justify-content: space-between;
   gap: 1rem;
+  padding: 1rem;
 
   @media only screen and (max-width: 50.625em /* 810px */) {
     display: grid;
     gap: 1.6rem;
     justify-content: center;
+  }
+
+  &__btn {
+    &--active {
+      background: linear-gradient(var(--main-10), var(--main-10)), var(--white);
+    }
   }
 }
