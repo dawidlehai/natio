@@ -1,6 +1,6 @@
 import { getData } from "./helpers.js";
 
-const state = {
+export const state = {
   country: {},
   neighbours: [],
 };
@@ -21,13 +21,13 @@ const loadNeighbours = async function (...neighbours) {
   }
 };
 
-const loadCountryAndNeighbours = async function (country) {
+export const loadCountryAndNeighbours = async function (country) {
   try {
     await loadCountry(country);
+
+    if (!state.country.borders.length) return;
     await loadNeighbours(...state.country.borders);
   } catch (error) {
     throw error;
   }
 };
-
-loadCountryAndNeighbours("poland");
