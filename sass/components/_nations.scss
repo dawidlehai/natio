@@ -19,6 +19,30 @@
     border-radius: 1.4rem;
     overflow: hidden;
     flex: 0 0 30rem;
+    position: relative;
+  }
+
+  &__favourites-icon-container {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--white);
+    border-radius: 100rem;
+    padding: 0.2rem;
+    cursor: pointer;
+  }
+
+  &__favourites-icon {
+    display: block;
+    transition: transform 0.1s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:active {
+      transform: scale(1.05);
+    }
   }
 
   &__flag {
