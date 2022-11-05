@@ -3,11 +3,15 @@ import { getData } from "./helpers.js";
 export const state = {
   country: {},
   neighbours: [],
-  progress: new Set(),
-  favourites: [],
+  history: new Set(),
+  progress: 0,
+  favourites: new Set(),
 };
 
-const createSnippet = function (name, flag) {
+const createSnippet = function (
+  name = state.country.name.common,
+  flag = state.country.flags.png
+) {
   return {
     name,
     flag,
@@ -15,12 +19,15 @@ const createSnippet = function (name, flag) {
 };
 
 const saveProgress = function () {
-  state.progress.add(
-    createSnippet(state.country.name.common, state.country.flags.png)
-  );
+  state.history.add(createSnippet());
   state.neighbours.forEach((country) =>
-    state.progress.add(createSnippet(country.name.common, country.flags.png))
+    state.history.add(createSnippet(country.name.common, country.flags.png))
   );
+  state.progress = state.history.size;
+};
+
+export const addToFavourites = function (name, flag) {
+  state.favourites.add(createSnippet(name, flag));
 };
 
 const loadCountry = async function (country) {
@@ -48,6 +55,7 @@ export const loadCountryAndNeighbours = async function (country) {
     console.log(state.country);
     console.log(state.neighbours);
     console.log(state.progress);
+    console.log(state.history);
   } catch (error) {
     throw error;
   }
