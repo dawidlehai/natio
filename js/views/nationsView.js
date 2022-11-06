@@ -13,12 +13,14 @@ class NationsView {
       this._generateHTML(state.country)
     );
     state.neighbours.forEach((country) => {
-      this._tab.insertAdjacentHTML("beforeend", this._generateHTML(country));
+      this._tab.insertAdjacentHTML(
+        "beforeend",
+        this._generateHTML(country, "neighbour")
+      );
     });
   }
 
-  _generateHTML(country) {
-    const cssClass = "main";
+  _generateHTML(country, cssClass = "main") {
     const common = country.name.common;
     const official = country.name.official;
     const flag = country.flags.png;

@@ -1,2 +1,7 @@
 .tab {
+  display: none;
+
+  &--active {
+    display: flex;
+  }
 }
