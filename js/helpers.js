@@ -15,3 +15,7 @@ export const getData = async function (...countries) {
     throw error;
   }
 };
+
+export const capitalizeFirstLetter = function (string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
