@@ -46,6 +46,7 @@ export const loadCountryAndNeighbours = async function (country) {
   try {
     await loadCountry(country);
     if (state.country.borders) await loadNeighbours(...state.country.borders);
+    else state.neighbours = [];
 
     saveProgress();
     persistState();
@@ -60,10 +61,10 @@ const init = function () {
 
   if (!storage) return;
 
-  state.favourites = storage.favourites;
-  state.history = storage.history;
   state.country = storage.country;
   state.neighbours = storage.neighbours;
+  state.favourites = storage.favourites;
+  state.history = storage.history;
   state.progress = storage.progress;
 };
 
