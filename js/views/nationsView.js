@@ -27,7 +27,7 @@ class NationsView {
     // const arms = country.coatOfArms.svg;
     const arms = country.flags.png; //TODO restore SVG when servers are up
     const subregion = country.subregion;
-    const capital = country.capital[0];
+    const [capital] = country.capital;
     let population = country.population;
     population =
       population >= 1_000_000
