@@ -3,31 +3,27 @@ import { getData } from "./helpers.js";
 export const state = {
   country: {},
   neighbours: [],
-  history: new Set(),
+  history: {},
   progress: 0,
-  favourites: new Set(),
+  favourites: {},
 };
 
-const createSnippet = function (
-  name = state.country.name.common,
-  flag = state.country.flags.png
-) {
-  return {
-    name,
-    flag,
-  };
+const persistState = function () {
+  localStorage.setItem("state", JSON.stringify(state));
 };
 
 const saveProgress = function () {
-  state.history.add(createSnippet());
-  state.neighbours.forEach((country) =>
-    state.history.add(createSnippet(country.name.common, country.flags.png))
+  state.history[state.country.name.common] = state.country.flags.png;
+  state.neighbours.forEach(
+    (country) => (state.history[country.name.common] = country.flags.png)
   );
-  state.progress = state.history.size;
+  state.progress = Object.keys(state.history).length;
 };
 
 export const addToFavourites = function (name, flag) {
-  state.favourites.add(createSnippet(name, flag));
+  state.favourites[name] = flag;
+
+  persistState();
 };
 
 const loadCountry = async function (country) {
@@ -52,11 +48,23 @@ export const loadCountryAndNeighbours = async function (country) {
     if (state.country.borders) await loadNeighbours(...state.country.borders);
 
     saveProgress();
-    console.log(state.country);
-    console.log(state.neighbours);
-    console.log(state.progress);
-    console.log(state.history);
+    persistState();
   } catch (error) {
     throw error;
   }
 };
+
+const init = function () {
+  // localStorage.clear();
+  const storage = JSON.parse(localStorage.getItem("state"));
+
+  if (!storage) return;
+
+  state.favourites = storage.favourites;
+  state.history = storage.history;
+  state.country = storage.country;
+  state.neighbours = storage.neighbours;
+  state.progress = storage.progress;
+};
+
+init();
