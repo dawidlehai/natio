@@ -6,7 +6,7 @@ class ProgressView {
   render(history) {
     this._snippetContainer.innerHTML = "";
     for (const [common, flag] of Object.entries(history)) {
-      this._snippetContaier.insertAdjacentHTML(
+      this._snippetContainer.insertAdjacentHTML(
         "beforeend",
         this._generateHTML(common, flag)
       );
