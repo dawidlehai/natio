@@ -13,14 +13,12 @@ const controlCountries = async function () {
       (searchUrl.includes("?query=") && searchUrl.replace("?query=", "")) ||
       false;
 
-    console.log(query);
-
     if (!query && isEmptyObject(model.state.country)) return;
     if (query) await model.loadCountryAndNeighbours(query);
 
     progressView.render(model.state.history);
-    nationsView.render(model.state);
-    console.log(model.state);
+    nationsView.renderCountries(model.state);
+    nationsView.renderFavourites(model.state.favourites);
   } catch (error) {
     console.log(`${error} - MY ERR`);
   }
@@ -40,11 +38,17 @@ const controlSearch = function () {
   controlCountries();
 };
 
+const controlFavourites = function (name, flag) {
+  model.toggleFavourites(name, flag);
+  nationsView.renderFavourites(model.state.favourites);
+};
+
 controlCountries();
 
 const init = function () {
   formView.addHandlerRandom(controlRandom);
   formView.addHandlerSearch(controlSearch);
+  nationsView.addHandlerToggleFavourite(controlFavourites);
 };
 
 init();

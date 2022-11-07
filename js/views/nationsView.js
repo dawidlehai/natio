@@ -1,13 +1,54 @@
 import { capitalizeFirstLetter } from "../helpers.js";
 
 class NationsView {
-  _state;
   _parent = document.querySelector(".main");
   _tab = document.querySelector(".nations");
-  _btnFavourite = document.querySelector("");
 
-  render(state) {
-    // this._state = state; // Do not need that for now
+  addHandlerToggleFavourite(handler) {
+    this._tab.addEventListener("click", function (e) {
+      const btnFavourite = e.target.closest(".nations__favourites-icon");
+
+      if (!btnFavourite) return;
+
+      const parent = e.target.closest(".nations__card");
+      const countryName = parent.querySelector(
+        ".nations__common-name"
+      ).textContent;
+      const flagUrl = parent.querySelector(".nations__flag").src;
+
+      handler(countryName, flagUrl);
+    });
+  }
+
+  renderFavourites(favourites) {
+    const cards = document.querySelectorAll(".nations__card");
+    cards.forEach((card) => {
+      const iconFavourite = card.querySelector(".nations__favourites-icon");
+      const countryName = card.querySelector(
+        ".nations__common-name"
+      ).textContent;
+
+      if (
+        favourites.hasOwnProperty(countryName) &&
+        iconFavourite.classList.contains("nations__favourites-icon--add")
+      ) {
+        iconFavourite.classList.remove("nations__favourites-icon--add");
+        iconFavourite.classList.add("nations__favourites-icon--remove");
+        iconFavourite.innerHTML = `<use xlink:href="img/icons.svg#heart-fill"></use>`;
+      }
+
+      if (
+        !favourites.hasOwnProperty(countryName) &&
+        iconFavourite.classList.contains("nations__favourites-icon--remove")
+      ) {
+        iconFavourite.classList.remove("nations__favourites-icon--remove");
+        iconFavourite.classList.add("nations__favourites-icon--add");
+        iconFavourite.innerHTML = `<use xlink:href="img/icons.svg#heart-add-fill"></use>`;
+      }
+    });
+  }
+
+  renderCountries(state) {
     this._tab.innerHTML = "";
     this._tab.insertAdjacentHTML(
       "afterbegin",

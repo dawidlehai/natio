@@ -1,9 +1,9 @@
 class ProgressView {
   _parent = document.querySelector(".main");
-  _tab = document.querySelector(".progress");
-  _snippetContainer = document.querySelector(".progress__snippet-container");
+  _tab = document.querySelector(".favourites");
+  _snippetContainer = document.querySelector(".favourites__snippet-container");
 
-  render(history) {
+  render(favourites) {
     this._snippetContainer.innerHTML = "";
     for (const [common, flag] of Object.entries(history)) {
       this._snippetContaier.insertAdjacentHTML(

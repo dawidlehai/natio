@@ -22,8 +22,9 @@ const saveProgress = function () {
   state.progress = Object.keys(state.history).length;
 };
 
-export const addToFavourites = function (name, flag) {
-  state.favourites[name] = flag;
+export const toggleFavourites = function (name, flag) {
+  if (state.favourites.hasOwnProperty(name)) delete state.favourites[name];
+  else state.favourites[name] = flag;
 
   persistState();
 };
