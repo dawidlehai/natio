@@ -18,6 +18,9 @@ class FormView {
   addHandlerSearchTyping(handler) {
     this._searchInput.addEventListener("input", handler);
     this._searchInput.addEventListener("focusin", handler);
+    this._searchInput.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowDown") console.log("down");
+    });
   }
 
   addHandlerSearchLostFocus() {
@@ -52,7 +55,7 @@ class FormView {
   }
 
   _generateHTML(country) {
-    return `<li class="form__option" data-country="${country}">${country}</li>`;
+    return `<li class="form__option" tabindex="0" data-country="${country}">${country}</li>`;
   }
 }
 
