@@ -36,9 +36,21 @@ const controlRandom = function () {
 
 const controlSearch = function () {
   const query = formView.getQuery();
+  formView.clearInput();
   updateUrl(query);
 
   controlCountries();
+};
+
+const controlSearchSuggestions = function () {
+  const query = formView.getQuery();
+  if (!query) {
+    formView.clearSuggestions();
+    return;
+  }
+
+  const suggestions = model.generateSuggestions(query);
+  formView.renderSuggestions(suggestions);
 };
 
 const controlFavourites = function (name, flag) {
@@ -56,10 +68,13 @@ controlCountries();
 
 const init = function () {
   formView.addHandlerRandom(controlRandom);
-  formView.addHandlerSearch(controlSearch);
+  formView.addHandlerSearchSubmit(controlSearch);
+  formView.addHandlerSearchTyping(controlSearchSuggestions);
+  formView.addHandlerSearchLostFocus();
   nationsView.addHandlerToggleFavourite(controlFavourites);
   favouritesView.addHandlerRemoveFavourite(controlFavourites);
   favouritesView.addHandlerLoadCountry(controlLoadCountry);
+  progressView.addHandlerLoadCountry(controlLoadCountry);
 };
 
 init();

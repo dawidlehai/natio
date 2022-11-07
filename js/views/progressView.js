@@ -13,6 +13,18 @@ class ProgressView {
     }
   }
 
+  addHandlerLoadCountry(handler) {
+    this._snippetContainer.addEventListener("click", function (e) {
+      const countrySnippet = e.target.closest(".snippet");
+      if (!countrySnippet) return;
+
+      const countryName =
+        countrySnippet.querySelector(".snippet__name").dataset.countryName;
+
+      handler(countryName);
+    });
+  }
+
   _generateHTML(common, flag) {
     return `
       <figure class="snippet">

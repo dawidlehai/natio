@@ -64,6 +64,20 @@ export const generateRandomCountry = function () {
   return allCountries[randomNumber];
 };
 
+export const generateSuggestions = function (query) {
+  const cleanQuery = query.toLowerCase().trim().replaceAll(" ", "");
+  const suggestions = new Set();
+  allCountries.forEach((country) => {
+    const cleanCountry = country.toLowerCase().replaceAll(" ", "");
+    if (cleanCountry.startsWith(cleanQuery)) suggestions.add(country);
+  });
+  allCountries.forEach((country) => {
+    const cleanCountry = country.toLowerCase().replaceAll(" ", "");
+    if (cleanCountry.includes(cleanQuery)) suggestions.add(country);
+  });
+  return suggestions;
+};
+
 const init = function () {
   // localStorage.clear();
   const storage = JSON.parse(localStorage.getItem("state"));

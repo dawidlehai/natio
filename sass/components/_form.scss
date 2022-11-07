@@ -7,6 +7,7 @@
   gap: 1rem;
   margin-right: var(--btn-margin);
   width: 25.261rem;
+  position: relative;
 
   align-items: center;
 
@@ -31,6 +32,39 @@
 
     &::-webkit-search-cancel-button {
       display: none;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(calc(100% + 0.3rem));
+    list-style: none;
+    z-index: 10;
+    background: #eee;
+    width: 100%;
+    max-height: 30rem;
+    border-radius: var(--radius-medium);
+    overflow-y: scroll;
+  }
+
+  &__option {
+    font-style: italic;
+    padding: 0.6rem 1.2rem;
+    cursor: pointer;
+
+    &:first-of-type {
+      padding-top: 1.2rem;
+    }
+
+    &:last-of-type {
+      padding-bottom: 1.2rem;
+    }
+
+    &:hover,
+    &:active {
+      background: #ccc;
     }
   }
 }
