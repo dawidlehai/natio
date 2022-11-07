@@ -1,4 +1,6 @@
-import { getData } from "./helpers.js";
+import { getData, randomInt } from "./helpers.js";
+
+import allCountries from "./allCountries.js";
 
 export const state = {
   country: {},
@@ -53,6 +55,11 @@ export const loadCountryAndNeighbours = async function (country) {
   } catch (error) {
     throw error;
   }
+};
+
+export const generateRandomCountry = function () {
+  const randomNumber = randomInt(0, allCountries.length - 1);
+  return allCountries[randomNumber];
 };
 
 const init = function () {

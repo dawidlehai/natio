@@ -4,6 +4,7 @@ class NationsView {
   _state;
   _parent = document.querySelector(".main");
   _tab = document.querySelector(".nations");
+  _btnFavourite = document.querySelector("");
 
   render(state) {
     // this._state = state; // Do not need that for now
