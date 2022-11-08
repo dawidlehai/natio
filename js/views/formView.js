@@ -12,6 +12,7 @@ class FormView {
     this._parent.addEventListener("submit", function (e) {
       e.preventDefault();
       handler();
+      clearSuggestions();
     });
   }
 
