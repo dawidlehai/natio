@@ -66,8 +66,7 @@ class NationsView {
     const common = country.name.common;
     const official = country.name.official;
     const flag = country.flags.png;
-    // const arms = country.coatOfArms.svg;
-    const arms = country.flags.png; //TODO restore SVG when servers are up
+    const arms = country.coatOfArms.png;
     const subregion = country.subregion ?? country.region;
     const [capital] = country.capital ?? ["No capital"];
     let population = country.population;
