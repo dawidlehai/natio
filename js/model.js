@@ -34,14 +34,16 @@ const loadCountry = async function (country) {
   try {
     [state.country] = await getData(country);
   } catch (error) {
+    console.log("loadCout");
     throw error;
   }
 };
 
 const loadNeighbours = async function (...neighbours) {
   try {
-    state.neighbours = await getData(...neighbours);
+    state.neighbours = await getData(neighbours, true);
   } catch (error) {
+    console.log("loadNe");
     throw error;
   }
 };
@@ -55,6 +57,7 @@ export const loadCountryAndNeighbours = async function (country) {
     saveProgress();
     persistState();
   } catch (error) {
+    console.log("loadCounAndN");
     throw error;
   }
 };

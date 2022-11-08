@@ -1,11 +1,11 @@
 import { API_URL, URL_COUNTRY, URL_NEIGHBOURS } from "./config.js";
 
-export const getData = async function (...countries) {
+export const getData = async function (countries, codes = false) {
   try {
     let url;
-    countries?.length > 1 ? (url = URL_NEIGHBOURS) : (url = URL_COUNTRY);
+    codes ? (url = URL_NEIGHBOURS) : (url = URL_COUNTRY);
 
-    const response = await fetch(`${API_URL}${url}${countries.join()}`);
+    const response = await fetch(`${API_URL}${url}${countries}`);
     const data = await response.json();
 
     if (!response.ok) throw new Error(`${data.message} (${response.status})`);

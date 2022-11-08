@@ -68,16 +68,22 @@ class NationsView {
     const flag = country.flags.png;
     // const arms = country.coatOfArms.svg;
     const arms = country.flags.png; //TODO restore SVG when servers are up
-    const subregion = country.subregion;
-    const [capital] = country.capital;
+    const subregion = country.subregion ?? country.region;
+    const [capital] = country.capital ?? ["No capital"];
     let population = country.population;
-    population =
-      population >= 1_000_000
-        ? `${Math.round(population / 1_000_000)} M`
-        : `${Math.round(population / 1_000)} K`;
-    const languages = Object.values(country.languages).join(", ");
-    const currency = Object.values(Object.values(country.currencies)[0]);
-    const currencyCode = Object.keys(country.currencies);
+    if (population >= 1_000_000)
+      population = `${Math.round(population / 1_000_000)} M`;
+    if (population >= 1_000 && population < 1_000_000)
+      population = `${Math.round(population / 1_000)} K`;
+    const languages = country.languages
+      ? Object.values(country.languages).join(", ")
+      : "No official language";
+    const [currencyName, currencySymbol] = country.currencies
+      ? Object.values(Object.values(country.currencies)[0])
+      : ["No official currency", null];
+    const currencyCode = country.currencies
+      ? Object.keys(country.currencies)
+      : null;
     const driveSide = capitalizeFirstLetter(country.car.side);
 
     return `
@@ -152,8 +158,16 @@ class NationsView {
           <use xlink:href="img/icons.svg#currency"></use>
         </svg>
         <p class="nations__info">
-          ${currency[0]} <span class="nations__currency">${currency[1]}</span>
-          <span class="nations__currency">${currencyCode[0]}</span>
+          ${currencyName} ${
+      currencySymbol
+        ? `<span class="nations__currency">${currencySymbol}</span>`
+        : ""
+    }
+          ${
+            currencyCode
+              ? `<span class="nations__currency">${currencyCode}</span>`
+              : ""
+          }
         </p>
 
         <svg
