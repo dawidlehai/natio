@@ -18,8 +18,47 @@ class FormView {
   addHandlerSearchTyping(handler) {
     this._searchInput.addEventListener("input", handler);
     this._searchInput.addEventListener("focusin", handler);
+
     this._searchInput.addEventListener("keydown", function (e) {
-      if (e.key === "ArrowDown") console.log("down");
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        const options = document.querySelectorAll(".form__option");
+
+        if (!options[0]) return;
+        options[0].focus();
+
+        options.forEach(function (option) {
+          option.addEventListener("keydown", function (e) {
+            if (e.key === "ArrowDown") {
+              e.preventDefault();
+              const nextEl = option.nextElementSibling;
+
+              if (!nextEl) return;
+              nextEl.focus();
+            }
+
+            if (e.key === "ArrowUp") {
+              e.preventDefault();
+              const prevEl = option.previousElementSibling;
+
+              if (!prevEl) {
+                document.querySelector("#search-input").focus();
+                return;
+              }
+              prevEl.focus();
+            }
+          });
+        });
+      }
+    });
+  }
+
+  addHandlerSubmitSuggestion(handler) {
+    this._formList.addEventListener("click", function (e) {
+      pasteSuggestion(e, handler);
+    });
+    this._formList.addEventListener("keydown", function (e) {
+      pasteSuggestionEnter(e, handler);
     });
   }
 
@@ -57,6 +96,29 @@ class FormView {
   _generateHTML(country) {
     return `<li class="form__option" tabindex="0" data-country="${country}">${country}</li>`;
   }
+}
+
+function pasteSuggestion(e, handler) {
+  e.preventDefault();
+  const option = e.target.closest(".form__option");
+  if (!option) return;
+
+  const country = option.dataset.country;
+  const searchInput = document.querySelector("#search-input");
+  searchInput.value = country;
+  searchInput.focus();
+  clearSuggestions();
+  handler();
+}
+
+function pasteSuggestionEnter(e, handler) {
+  if (e.key !== "Enter") return;
+
+  pasteSuggestion(e, handler);
+}
+
+function clearSuggestions() {
+  document.querySelector(".form__list").innerHTML = "";
 }
 
 export default new FormView();

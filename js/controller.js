@@ -69,6 +69,7 @@ controlCountries();
 const init = function () {
   formView.addHandlerRandom(controlRandom);
   formView.addHandlerSearchSubmit(controlSearch);
+  formView.addHandlerSubmitSuggestion(controlSearch);
   formView.addHandlerSearchTyping(controlSearchSuggestions);
   formView.addHandlerSearchLostFocus();
   nationsView.addHandlerToggleFavourite(controlFavourites);
