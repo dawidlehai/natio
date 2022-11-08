@@ -14,7 +14,8 @@ const controlCountries = async function () {
       (searchUrl.includes("?query=") && searchUrl.replace("?query=", "")) ||
       false;
 
-    if (!query && isEmptyObject(model.state.country)) return;
+    if (!query && isEmptyObject(model.state.country))
+      await model.loadCountryAndNeighbours(model.getUsersCountry());
     if (query) await model.loadCountryAndNeighbours(query);
 
     nationsView.renderCountries(model.state);

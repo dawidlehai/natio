@@ -1,6 +1,8 @@
-import { getData, randomInt } from "./helpers.js";
+import { getData, randomInt, cleanString } from "./helpers.js";
 
 import allCountries from "./allCountries.js";
+import allTimezones from "./allTimeZones.js";
+import allTimeZones from "./allTimeZones.js";
 
 export const state = {
   country: {},
@@ -65,17 +67,26 @@ export const generateRandomCountry = function () {
 };
 
 export const generateSuggestions = function (query) {
-  const cleanQuery = query.toLowerCase().trim().replaceAll(" ", "");
+  const cleanQuery = cleanString(query);
   const suggestions = new Set();
   allCountries.forEach((country) => {
-    const cleanCountry = country.toLowerCase().replaceAll(" ", "");
+    const cleanCountry = cleanString(country);
     if (cleanCountry.startsWith(cleanQuery)) suggestions.add(country);
   });
   allCountries.forEach((country) => {
-    const cleanCountry = country.toLowerCase().replaceAll(" ", "");
+    const cleanCountry = cleanString(country);
     if (cleanCountry.includes(cleanQuery)) suggestions.add(country);
   });
   return suggestions;
+};
+
+export const getUsersCountry = function () {
+  if (!Intl) return false;
+  const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const tzArr = userTimeZone.split("/");
+  const userCity = tzArr[tzArr.length - 1];
+  const userCountry = allTimeZones[userCity];
+  return userCountry;
 };
 
 const init = function () {

@@ -81,7 +81,7 @@ class NationsView {
       ? Object.values(Object.values(country.currencies)[0])
       : ["No official currency", null];
     const currencyCode = country.currencies
-      ? Object.keys(country.currencies)
+      ? Object.keys(country.currencies).join(", ")
       : null;
     const driveSide = capitalizeFirstLetter(country.car.side);
 

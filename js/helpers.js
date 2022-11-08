@@ -29,3 +29,11 @@ export const randomInt = (min, max) =>
 
 export const updateUrl = (url) =>
   window.history.pushState("", "", `?query=${url}`);
+
+export const cleanString = (string) =>
+  string
+    .toLowerCase()
+    .trim()
+    .replaceAll(" ", "")
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "");
