@@ -6,6 +6,7 @@ import favouritesView from "./views/favouritesView.js";
 import formView from "./views/formView.js";
 
 import { isEmptyObject, updateUrl } from "./helpers.js";
+import { REG_EXP } from "./config.js";
 
 const controlCountries = async function () {
   try {
@@ -14,8 +15,12 @@ const controlCountries = async function () {
       (searchUrl.includes("?query=") && searchUrl.replace("?query=", "")) ||
       false;
 
+    if (!query.match(REG_EXP))
+      throw new Error("Country's name should contain only letters and dashes.");
+
     if (!query && isEmptyObject(model.state.country))
       await model.loadCountryAndNeighbours(model.getUsersCountry());
+
     if (query) await model.loadCountryAndNeighbours(query);
 
     nationsView.renderCountries(model.state);

@@ -69,14 +69,17 @@ export const generateRandomCountry = function () {
 export const generateSuggestions = function (query) {
   const cleanQuery = cleanString(query);
   const suggestions = new Set();
+
   allCountries.forEach((country) => {
     const cleanCountry = cleanString(country);
     if (cleanCountry.startsWith(cleanQuery)) suggestions.add(country);
   });
+
   allCountries.forEach((country) => {
     const cleanCountry = cleanString(country);
     if (cleanCountry.includes(cleanQuery)) suggestions.add(country);
   });
+
   return suggestions;
 };
 

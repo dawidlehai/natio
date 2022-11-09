@@ -14,6 +14,16 @@ class FormView {
       handler();
       clearSuggestions();
     });
+
+    const input = this._searchInput;
+    this._searchInput.addEventListener("input", function (e) {
+      if (input.validity.patternMismatch) {
+        input.setCustomValidity("Only letters and dashes.");
+        input.reportValidity();
+      } else {
+        input.setCustomValidity("");
+      }
+    });
   }
 
   addHandlerSearchTyping(handler) {
