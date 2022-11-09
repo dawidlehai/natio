@@ -15,6 +15,10 @@
     line-height: 1;
   }
 
+  &:has(&__search-input:invalid) {
+    background: var(--main-10);
+  }
+
   &__search-input {
     font-family: inherit;
     font-size: var(--font-size-small);
