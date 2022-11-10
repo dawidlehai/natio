@@ -50,10 +50,7 @@ const controlSearch = function () {
 
 const controlSearchSuggestions = function () {
   const query = formView.getQuery();
-  if (!query) {
-    formView.clearSuggestions();
-    return;
-  }
+  if (!query) return formView.clearSuggestions();
 
   const suggestions = model.generateSuggestions(query);
   formView.renderSuggestions(suggestions);
